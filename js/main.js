@@ -13,9 +13,9 @@ $(function() {
         screenWidth = screen.width * ratio;
     }
 
-    // Plane starting position (out of view to the left of the view)
-    planeWidth = document.getElementById("plane").clientWidth;
-    document.getElementById("target").style.left = (-planeWidth).toString() + "px";
+    // // Plane starting position (out of view to the left of the view)
+    // planeWidth = document.getElementById("plane").clientWidth;
+    // document.getElementById("target").style.left = (-planeWidth).toString() + "px";
 
     // Set vertical position of work experience section
     var frontDivHeight = document.getElementById('front').clientHeight;
@@ -53,49 +53,49 @@ $(function() {
     //     }
     // };
 
-    var flightpath = {
-        entry : {
-            curviness: 1.25,
-            autoRotate: true,
-            values: [
-                    {x: 100,	y: -20},
-                    {x: 300,	y: 10}
-                ]
-        },
-        looping : {
-            curviness: 1.25,
-            autoRotate: true,
-            values: [
-                    {x: 510,	y: 60},
-                    {x: 620,	y: -60},
-                    {x: 500,	y: -100},
-                    {x: 380,	y: 20},
-                    {x: 500,	y: 60},
-                    {x: 580,	y: 20},
-                    {x: 620,	y: 15}
-                ]
-        },
-        leave : {
-            curviness: 1.25,
-            autoRotate: true,
-            values: [
-                    {x: 660,	y: 20},
-                    {x: 800,	y: 130},
-                    {x: $(window).width() + 300,	y: -100},
-                ]
-        }
-    };
+    // var flightpath = {
+    //     entry : {
+    //         curviness: 1.25,
+    //         autoRotate: true,
+    //         values: [
+    //                 {x: 100,	y: -20},
+    //                 {x: 300,	y: 10}
+    //             ]
+    //     },
+    //     looping : {
+    //         curviness: 1.25,
+    //         autoRotate: true,
+    //         values: [
+    //                 {x: 510,	y: 60},
+    //                 {x: 620,	y: -60},
+    //                 {x: 500,	y: -100},
+    //                 {x: 380,	y: 20},
+    //                 {x: 500,	y: 60},
+    //                 {x: 580,	y: 20},
+    //                 {x: 620,	y: 15}
+    //             ]
+    //     },
+    //     leave : {
+    //         curviness: 1.25,
+    //         autoRotate: true,
+    //         values: [
+    //                 {x: 660,	y: 20},
+    //                 {x: 800,	y: 130},
+    //                 {x: $(window).width() + 300,	y: -100},
+    //             ]
+    //     }
+    // };
 
-    // create tween
-    var tween = new TimelineMax()
-        .add(TweenMax.to($("#plane"), 1.2, {css:{bezier:flightpath.entry}, ease:Power1.easeInOut}))
-        .add(TweenMax.to($("#plane"), 2, {css:{bezier:flightpath.looping}, ease:Power1.easeInOut}))
-        .add(TweenMax.to($("#plane"), 1, {css:{bezier:flightpath.leave}, ease:Power1.easeInOut}));
+    // // create tween
+    // var tween = new TimelineMax()
+    //     .add(TweenMax.to($("#plane"), 1.2, {css:{bezier:flightpath.entry}, ease:Power1.easeInOut}))
+    //     .add(TweenMax.to($("#plane"), 2, {css:{bezier:flightpath.looping}, ease:Power1.easeInOut}))
+    //     .add(TweenMax.to($("#plane"), 1, {css:{bezier:flightpath.leave}, ease:Power1.easeInOut}));
 
-    // build scene
-    var scene0 = new ScrollMagic.Scene({triggerElement: "#trigger0", triggerHook: "onEnter", duration: 1000, offset: 100})
-        .setTween(tween)
-        .addIndicators({name: "airplane"}) // add indicators (requires plugin)
-        .addTo(controller);
+    // // build scene
+    // var scene0 = new ScrollMagic.Scene({triggerElement: "#trigger0", triggerHook: "onEnter", duration: 1000, offset: 100})
+    //     .setTween(tween)
+    //     .addIndicators({name: "airplane"}) // add indicators (requires plugin)
+    //     .addTo(controller);
     
   });

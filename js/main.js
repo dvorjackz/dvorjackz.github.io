@@ -21,20 +21,22 @@ $(function() {
     // Set up scroll magic
     var controller = new ScrollMagic.Controller();
 
-    // The animations for each profile section (start y's start at 3/2 and increment by 1 for each section, e.g. 3/2, 5/2, 7/2 ...)
+    // Fade in the frontpage on startup
     var tween0 = TweenMax.fromTo("#front", 2, {autoAlpha: 0}, {autoAlpha: 1})
+
+    // The animations for each profile section (start y's start at 3/2 and increment by 1 for each section, e.g. 3/2, 5/2, 7/2 ...)
     var tween1 = TweenMax.staggerFromTo(".staggerAnimate1", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
     var tween2 = TweenMax.staggerFromTo(".staggerAnimate2", 1, {y: screenHeight*5/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
 
-
     section1Height = document.getElementById("section1").clientHeight;
     section2Height = document.getElementById("section2").clientHeight;
-    // Each animation scene has duration proportional to the length of the section
-	var scene1 = new ScrollMagic.Scene({triggerElement: "#trigger1", offset: 100, duration: section1Height/3})
+
+    // Each scene's duration is proportional to the difference between the screen and section height, (animation ends when section is vertically centered)
+	var scene1 = new ScrollMagic.Scene({triggerElement: "#trigger1", offset: 100, duration: (screenHeight - section1Height)/2})
         .setTween(tween1)
         .addIndicators({name: "staggering1"}) // add indicators (requires plugin)
         .addTo(controller);
-    var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger2", offset: 100, duration: section2Height/3})
+    var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger2", offset: 100, duration: (screenHeight - section2Height)/2})
         .setTween(tween2)
         .addIndicators({name: "staggering2"}) // add indicators (requires plugin)
         .addTo(controller);

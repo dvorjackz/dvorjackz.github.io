@@ -124,17 +124,16 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     left: 50%;
   }
 
-  #plane {
+  /* #plane {
     position: absolute;
     left: 0px;
-  }
+  } */
 
-  #trigger1 {
-    position: absolute;
-    top: 0px;
+  #trigger1, #trigger2 {
+    position: relative;
   }
     
-  .staggerAnimate {
+  .staggerAnimate1, .stagerAnimate2 {
       position: relative;
   }
 

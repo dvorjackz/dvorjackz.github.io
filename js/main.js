@@ -43,11 +43,11 @@ $(function() {
                     // {x: 500,	y: 60},
                     // {x: 580,	y: 20},
                     // {x: 620,	y: 15}
-                    {x: screenWidth/2, y: 40},
+                    {x: screenWidth/2 - 200, y: 100},
                     {x: screenWidth/2 + 250, y: -30},
                     {x: screenWidth/2 - 200, y: -60},
-                    {x: screenWidth/2 + 150, y: 0},
-                    {x: screenWidth + planeWidth, y: 60},
+                    {x: screenWidth/2 + 150, y: -20},
+                    {x: screenWidth*3/2 + planeWidth, y: -200},
                 ]
         }
     };

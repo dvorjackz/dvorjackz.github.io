@@ -116,12 +116,13 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   }
 
   .front {
-    border:3px dashed green;
+    position: absolute;
+    top: 50%;
+    left: 50%;
   }
 
   #target {
       position: absolute;
-
       left: 0px;
   }
 

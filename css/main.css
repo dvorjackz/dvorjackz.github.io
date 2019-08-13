@@ -1,4 +1,4 @@
-html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
+html, section, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video {
     margin: 0;
     padding: 0;
   }
@@ -90,7 +90,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     background-repeat: no-repeat;
     background-size: auto 90%
   }
-  
+
   a {
     text-decoration: none;
     color: #0081b6;
@@ -106,7 +106,11 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
   }  
   
   /* --------------------------- Typography --------------------------- */
-  
+
+  section {
+    justify-content:center;
+  }
+
   .full {
     max-width: 960px;
     margin: 0 auto 0px;
@@ -129,11 +133,11 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     left: 0px;
   } */
 
-  #trigger1, #trigger2 {
+  #trigger1, #trigger2, #trigger3 {
     position: relative;
   }
     
-  .staggerAnimate1, .stagerAnimate2 {
+  .staggerAnimate1, .stagerAnimate2, .staggerAnimate3 {
       position: relative;
   }
 
@@ -147,6 +151,8 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     font-size: 15px;
     font-weight: 400;
     line-height: 1.4em;
+    text-align: center;
+    display: block;
   }
   
   .hr {
@@ -164,6 +170,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     margin: 0 auto;
     max-width: 684px;
     padding-bottom: 4px;
+    text-align: center;
   }
 
   h2 {
@@ -273,7 +280,7 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
     padding: 0;
   }
   
-  @media only screen and (max-device-width: 1024px) {
+  /* @media only screen and (max-device-width: 1024px) {
     #main {
       width: 100%;
     }
@@ -294,4 +301,4 @@ html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pr
         margin: 24px 0 0;
     }
   }
-  
+   */

@@ -4,11 +4,8 @@ const TOTAL_DURATION = STAGGER_DURATION + PIN_DURATION;
 
 function spaceOutSections(n) {
     var spacers = document.getElementsByClassName("spacer");
-    console.log(spacers.length);
     for (spacer of spacers) {
-        console.log(spacer.clientHeight);
         spacer.style.height = spacer.clientHeight*n + 'px';
-        console.log(spacer.style.height);
     }
 }
 
@@ -23,6 +20,26 @@ $(function() {
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenWidth = screen.width * ratio;
     }
+
+    // Establish scroll to top rocket button
+    // CHECK TO SEE IF THE WINDOW IS TOP IF NOT THEN DISPLAY BUTTON
+    jQuery(window).scroll(function(){
+        if ($(window).scrollTop() > screenHeight) {
+            $(".scroll-top").fadeIn();
+        }
+        else {
+            $(".scroll-top").fadeOut();
+            $(".scroll-top").removeClass("scrolling");;
+        }
+    });
+    //CLICK EVENT TO SCROLL TO TOP
+    $(".scroll-top").click(function() {
+        console.log("Click");
+        $(window.opera ? 'html' : 'html, body').animate({
+            scrollTop: 0
+        }, "slow");
+        $(".scroll-top").addClass("scrolling");
+    });
 
     // Set up scroll magic
     var controller = new ScrollMagic.Controller();

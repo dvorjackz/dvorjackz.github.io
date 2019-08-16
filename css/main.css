@@ -176,47 +176,8 @@ html, section, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
     animation-timing-function:ease-in-out;
   }
   
-  .scroll-top .flame {
-    -moz-border-bottom-colors:none;
-    -moz-border-left-colors:none;
-    -moz-border-right-colors:none;
-    -moz-border-top-colors:none;
-    border-color:#ffda44 transparent transparent;
-    border-style:solid;
-    border-width:25px 3px 3px;
-    /* display:none; */
-    height:0;
-    left:-4px;
-    margin:-5px auto 0;
-    position:absolute;
-    right:0;
-    top:66%;
-    width:0;
-  }
-  
-  .scroll-top .flame+.flame {
-    border-width:10px 2px 2px;
-    left:20px;
-    margin:0;
-  }
-  
-  .scroll-top .flame+.flame+.flame {
-    border-width:10px 2px 2px;
-    left: auto;
-    margin: 0;
-    right: 24px;
-  }
-  
-  .scrolling .flame {
-    display: block;
-  }
-  
-  .nav-toggle,.owl-item .quote-icon,.price-box .price-box-head-shadow,.scroll-top .flame {
-    transition:all .5s cubic-bezier(.25,.1,.25,1) 0s;
-  }
-  
   @keyframes shake-little {
-    0% {transform:translate(0,0) rotate(0)} 14%,16%,2%,20%,24%,30%,48%,52%,54%,76%,8%,84%,86%,88%,92%,96%,98% {transform:translate(0,0) rotate(-.5deg)} 10%,12%,22%,32%,4%,42%,44%,64%,72%,80%,90% {transform:translate(-1px,0) rotate(-.5deg)} 18%,34%,36%,46%,6%,66%,68%,70%,74%,82%,94% {transform:translate(0,-1px) rotate(-.5deg)}26%,28%,38%,40%,50%,56%,58%,60%,62%,78% {transform:translate(-1px,-1px) rotate(-.5deg)}
+    0% {transform:translate(0,0) rotate(0)} 14%,16%,2%,20%,24%,30%,48%,52%,54%,76%,8%,84%,86%,88%,92%,96%,98% {transform:translate(0,0) rotate(-.5deg)} 10%,12%,22%,32%,4%,42%,44%,64%,72%,80%,90% {transform:translate(-2px,0) rotate(-.5deg)} 18%,34%,36%,46%,6%,66%,68%,70%,74%,82%,94% {transform:translate(0,-2px) rotate(-.5deg)}26%,28%,38%,40%,50%,56%,58%,60%,62%,78% {transform:translate(-2px,-2px) rotate(-.5deg)}
   }
 
   /* #plane {

@@ -87,7 +87,7 @@ $(function() {
         .addIndicators({name: "pin1"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration; // Pin duration for scene 1
-    sceneOffset += screenHeight; // Offset from scene 1 to scene 2
+    sceneOffset += screenHeight + 300; // Offset from scene 1 to scene 2
 
     var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger2", offset: sceneOffset + section2Height/2, duration: staggerDuration})
         .setPin("#section2")
@@ -100,7 +100,7 @@ $(function() {
         .addIndicators({name: "pin2"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
-    sceneOffset += screenHeight; // Offset from scene 2 to scene 3
+    sceneOffset += screenHeight + 300; // Offset from scene 2 to scene 3
 
     var scene3 = new ScrollMagic.Scene({triggerElement: "#trigger3", offset: sceneOffset + section3Height/2, duration: staggerDuration})
         .setPin("#section3")
@@ -113,7 +113,7 @@ $(function() {
         .addIndicators({name: "pin3"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
-    sceneOffset += screenHeight; // Offset from scene 3 to scene 4
+    sceneOffset += screenHeight + 300; // Offset from scene 3 to scene 4
 
     var scene4 = new ScrollMagic.Scene({triggerElement: "#trigger4", offset: sceneOffset + section4Height/2, duration: staggerDuration})
         .setPin("#section4")
@@ -126,7 +126,7 @@ $(function() {
         .addIndicators({name: "pin4"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
-    sceneOffset += screenHeight; // Offset from scene 4 to end scene
+    sceneOffset += screenHeight + 300; // Offset from scene 4 to end scene
 
     // ------------------------------ Plane bezier animation (broken on mobile) ------------------------------ //
 

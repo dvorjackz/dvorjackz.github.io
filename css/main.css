@@ -166,7 +166,7 @@ html, section, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
     z-index: 9999;
   }
   
-  .scroll-top:hover {
+  .can-hover.scroll-top:hover {
     animation-delay: 0s;
     animation-duration: .1s;
     animation-iteration-count: infinite;

@@ -11,12 +11,19 @@ function spaceOutSections(n) {
 
 $(function() {
 
+    var canHover = !(matchMedia('(hover: none)').matches);
+    if (canHover) {
+        $('.scroll-top').addClass('can-hover');
+    }
+
     var ratio = window.devicePixelRatio || 1;
     var screenHeight = $(window).height();
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        // screenHeight = screen.height * ratio;
+    if(  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenHeight = window.innerHeight || $(window).height();
         $('.spacer').height(screenHeight);
+    }
+    else {
+        $('.scroll-top').addClass('can-hover');
     }
     var screenWidth = $(window).width();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -32,7 +39,8 @@ $(function() {
         }
         else {
             $(".scroll-top").fadeOut();
-            $(".scroll-top").removeClass("scrolling");;
+            $(".scroll-top").removeClass("scroll-top_hover");
+            console.log("Stopped shaking");
         }
     });
     //CLICK EVENT TO SCROLL TO TOP
@@ -41,7 +49,7 @@ $(function() {
         $(window.opera ? 'html' : 'html, body').animate({
             scrollTop: 0
         }, "slow");
-        $(".scroll-top").addClass("scrolling");
+        console.log("Started shaking");
     });
 
     // Set up scroll magic

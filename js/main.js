@@ -25,6 +25,9 @@ $(function() {
     else {
         $('.scroll-top').addClass('can-hover');
     }
+
+    console.log(screenHeight);
+
     var screenWidth = $(window).width();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenWidth = screen.width * ratio;
@@ -40,16 +43,13 @@ $(function() {
         else {
             $(".scroll-top").fadeOut();
             $(".scroll-top").removeClass("scroll-top_hover");
-            console.log("Stopped shaking");
         }
     });
     //CLICK EVENT TO SCROLL TO TOP
     $(".scroll-top").click(function() {
-        console.log("Click");
         $(window.opera ? 'html' : 'html, body').animate({
             scrollTop: 0
         }, "slow");
-        console.log("Started shaking");
     });
 
     // Set up scroll magic

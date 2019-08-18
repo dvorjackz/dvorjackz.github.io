@@ -66,9 +66,9 @@ $(function() {
 
     // (FRAMEWORK) The animations for each profile section (start y's start at 3/2 and increment by 1 for each section, e.g. 3/2, 5/2, 7/2 ...)
     var tween1 = TweenMax.staggerFromTo(".staggerAnimate1", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
-    var tween2 = TweenMax.staggerFromTo(".staggerAnimate2", 1, {y: screenHeight*5/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
-    var tween3 = TweenMax.staggerFromTo(".staggerAnimate3", 1, {y: screenHeight*7/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
-    var tween4 = TweenMax.staggerFromTo(".staggerAnimate4", 1, {y: screenHeight*9/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
+    var tween2 = TweenMax.staggerFromTo(".staggerAnimate2", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
+    var tween3 = TweenMax.staggerFromTo(".staggerAnimate3", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
+    var tween4 = TweenMax.staggerFromTo(".staggerAnimate4", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
 
     // (FRAMEWORK)
     spaceOutSections(TOTAL_DURATION); // Set up spaces in between sections to account for scrolling

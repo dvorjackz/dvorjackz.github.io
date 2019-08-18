@@ -110,6 +110,7 @@ html, section, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
   section {
     justify-content:center;
     height: 100vh;
+    padding: 0px 15px;
   }
 
   .spacer {
@@ -128,9 +129,7 @@ html, section, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
   }
 
   .front {
-    position: absolute;
-    top: 50%;
-    left: 50%;
+    padding: 0px 15px;
   }
 
   .portrait {
@@ -161,7 +160,7 @@ html, section, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
     height: 60px; 
     width: 60px; 
     position: fixed; 
-    bottom: 25px; 
+    bottom: 20px; 
     right: 25px; 
     display: none; 
     z-index: 9999;
@@ -332,9 +331,18 @@ html, section, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
     padding: 0;
   }
   
-  /* @media only screen and (max-device-width: 1024px) {
+  @media only screen and (max-device-width: 1024px) {
     #main {
       width: 100%;
+      display: block;
+    }
+
+    h1 {
+      font-size: 24px;
+    }
+
+    .item-desc {
+      font-size: 8px;
     }
   
     .col {
@@ -342,15 +350,3 @@ html, section, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, 
         margin: 24px 0 0;
     }
   }
-  
-  @media (max-width: 1024px) {
-    #main {
-      max-width: 580px;
-    }
-  
-    .col {
-      width: 100%;
-        margin: 24px 0 0;
-    }
-  }
-   */

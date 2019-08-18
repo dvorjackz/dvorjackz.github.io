@@ -14,11 +14,14 @@ $(function() {
     var ratio = window.devicePixelRatio || 1;
     var screenHeight = $(window).height();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        screenHeight = screen.height * ratio;
+        // screenHeight = screen.height * ratio;
+        screenHeight = window.innerHeight || $(window).height();
+        $('.spacer').height(screenHeight);
     }
     var screenWidth = $(window).width();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenWidth = screen.width * ratio;
+        var viewportHeight = $('.banner').outerHeight();
     }
 
     // Establish scroll to top rocket button
@@ -45,7 +48,7 @@ $(function() {
     var controller = new ScrollMagic.Controller();
 
     // Fade in the frontpage on startup
-    var tween0 = TweenMax.fromTo("#front", 2, {autoAlpha: 0}, {autoAlpha: 1})
+    var tween0 = TweenMax.fromTo(".front", 2, {autoAlpha: 0}, {autoAlpha: 1})
 
     // (FRAMEWORK)
     section1Height = document.getElementById("section1").clientHeight;

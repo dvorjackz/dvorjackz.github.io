@@ -24,6 +24,7 @@ $(function() {
         $('.spacer').height(screenHeight);
         $('section').height(screenHeight);
         $('.full').height(screenHeight);
+        document.getElementById("fuck").textContent="Hello!";
     }
     else {
         $('.scroll-top').addClass('can-hover');

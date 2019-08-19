@@ -83,65 +83,65 @@ $(function() {
     pinDuration = PIN_DURATION * screenHeight;
     
     sceneOffset = 0; // Offset for scene 1
-    var scene1 = new ScrollMagic.Scene({triggerElement: "#trigger1", offset: sceneOffset + section1Height/2, duration: staggerDuration})
+    var scene1 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section1Height/2, duration: staggerDuration})
         .setPin("#section1")
         .setTween(tween1)
         .addIndicators({name: "staggering1"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += staggerDuration; // Stagger duration for scene 1
-    var scene1a = new ScrollMagic.Scene({triggerElement: "#trigger1", offset: sceneOffset + section1Height/2, duration: pinDuration})
+    var scene1a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section1Height/2, duration: pinDuration})
         .setPin("#section1")
         .addIndicators({name: "pin1"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration; // Pin duration for scene 1
     sceneOffset += screenHeight; // Offset from scene 1 to scene 2
 
-    var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger2", offset: sceneOffset + section2Height/2, duration: staggerDuration})
+    var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section2Height/2, duration: staggerDuration})
         .setPin("#section2")
         .setTween(tween2)
         .addIndicators({name: "staggering2"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += staggerDuration; // Stagger duration for scene 2
-    var scene2a = new ScrollMagic.Scene({triggerElement: "#trigger2", offset: sceneOffset + section2Height/2, duration: pinDuration})
+    var scene2a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section2Height/2, duration: pinDuration})
         .setPin("#section2")
         .addIndicators({name: "pin2"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
     sceneOffset += screenHeight; // Offset from scene 2 to scene 3
 
-    var scene3 = new ScrollMagic.Scene({triggerElement: "#trigger3", offset: sceneOffset + section3Height/2, duration: staggerDuration})
+    var scene3 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section3Height/2, duration: staggerDuration})
         .setPin("#section3")
         .setTween(tween3)
         .addIndicators({name: "staggering3"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += staggerDuration;
-    var scene3a = new ScrollMagic.Scene({triggerElement: "#trigger3", offset: sceneOffset + section3Height/2, duration: pinDuration})
+    var scene3a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section3Height/2, duration: pinDuration})
         .setPin("#section3")
         .addIndicators({name: "pin3"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
     sceneOffset += screenHeight; // Offset from scene 3 to scene 4
 
-    var scene4 = new ScrollMagic.Scene({triggerElement: "#trigger4", offset: sceneOffset + section4Height/2, duration: staggerDuration})
+    var scene4 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section4Height/2, duration: staggerDuration})
         .setPin("#section4")
         .setTween(tween4)
         .addIndicators({name: "staggering4"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += staggerDuration;
-    var scene4a = new ScrollMagic.Scene({triggerElement: "#trigger4", offset: sceneOffset + section4Height/2, duration: pinDuration})
+    var scene4a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section4Height/2, duration: pinDuration})
         .setPin("#section4")
         .addIndicators({name: "pin4"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
     sceneOffset += screenHeight; // Offset from scene 4 to scene 5
 
-    var scene5 = new ScrollMagic.Scene({triggerElement: "#trigger5", offset: sceneOffset + section5Height/2, duration: staggerDuration})
+    var scene5 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section5Height/2, duration: staggerDuration})
         .setPin("#section5")
         .setTween(tween5)
         .addIndicators({name: "staggering5"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += staggerDuration;
-    var scene5a = new ScrollMagic.Scene({triggerElement: "#trigger5", offset: sceneOffset + section5Height/2, duration: pinDuration})
+    var scene5a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section5Height/2, duration: pinDuration})
         .setPin("#section5")
         .addIndicators({name: "pin5"}) // add indicators (requires plugin)
         .addTo(controller);

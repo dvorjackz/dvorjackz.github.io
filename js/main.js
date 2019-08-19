@@ -22,7 +22,7 @@ $(function() {
         screenHeight = window.innerHeight || $(window).height();
         // vh does not work in mobile, so height is set dynamicaly
         $('.spacer').height(screenHeight);
-        $('.section').height(screenHeight);
+        $('section').height(screenHeight);
         $('.full').height(screenHeight);
     }
     else {

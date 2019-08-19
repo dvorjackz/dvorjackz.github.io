@@ -1,6 +1,8 @@
 const STAGGER_DURATION = 7;
 const PIN_DURATION = 3;
 const TOTAL_DURATION = STAGGER_DURATION + PIN_DURATION;
+var screenHeight;
+var screenWidth;
 
 function spaceOutSections(n) {
     var spacers = document.getElementsByClassName("spacer");
@@ -9,18 +11,7 @@ function spaceOutSections(n) {
     }
 }
 
-$(window).resize(function fuck () { 
-    var screenHeight = $(window).height();
-    var screenWidth = $(window).width();
-});
-
 $(function() {
-
-    $(window).bind('resize', function () { 
-        var screenHeight = $(window).height();
-        var screenWidth = $(window).width();
-        console.log("fuck");
-    });
 
     // Rocket doesn't shake on mobile, only on web
     var canHover = !(matchMedia('(hover: none)').matches);
@@ -29,7 +20,7 @@ $(function() {
     }
 
     var ratio = window.devicePixelRatio || 1;
-    var screenHeight = $(window).height();
+    screenHeight = $(window).height();
     if(  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenHeight = window.innerHeight || $(window).height();
         // vh does not work in mobile, so height is set dynamicaly
@@ -40,7 +31,7 @@ $(function() {
     else {
         $('.scroll-top').addClass('can-hover');
     }
-    var screenWidth = $(window).width();
+    screenWidth = $(window).width();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenWidth = screen.width * ratio;
         var viewportHeight = $('.banner').outerHeight();
@@ -76,11 +67,6 @@ $(function() {
     section3Height = document.getElementById("section3").clientHeight;
     section4Height = document.getElementById("section4").clientHeight;
     section5Height = document.getElementById("section5").clientHeight;
-    console.log(section1Height);
-    console.log(section2Height);
-    console.log(section3Height);
-    console.log(section4Height);
-    console.log(section5Height);
 
     // (FRAMEWORK) The animations for each profile section (start y's start at 3/2 and increment by 1 for each section, e.g. 3/2, 5/2, 7/2 ...)
     var tween1 = TweenMax.staggerFromTo(".staggerAnimate1", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);

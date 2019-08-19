@@ -109,17 +109,20 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
   section {
     justify-content:center;
+    /* vh does not work in mobile, so height is set dynamicaly in js */
     height: 100vh;
     padding: 0px 15px;
   }
 
   .spacer {
+    /* vh does not work in mobile, so height is set dynamicaly in js */
     height: 100vh;
   }
 
   .full {
     max-width: 960px;
     margin: 0 auto 0px;
+    /* vh does not work in mobile, so height is set dynamicaly in js */
     height: 100vh;
     display:flex;
     justify-content:center;
@@ -183,14 +186,6 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     position: absolute;
     left: 0px;
   } */
-
-  #trigger1, #trigger2, #trigger3 {
-    position: relative;
-  }
-    
-  .staggerAnimate1, .stagerAnimate2, .staggerAnimate3 {
-      position: relative;
-  }
 
   .spanner {
       padding: 30px;

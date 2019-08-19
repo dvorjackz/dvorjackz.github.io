@@ -20,14 +20,14 @@ $(function() {
     var screenHeight = $(window).height();
     if(  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenHeight = window.innerHeight || $(window).height();
+        // vh does not work in mobile, so height is set dynamicaly
         $('.spacer').height(screenHeight);
+        $('.section').height(screenHeight);
+        $('.full').height(screenHeight);
     }
     else {
         $('.scroll-top').addClass('can-hover');
     }
-
-    console.log(screenHeight);
-
     var screenWidth = $(window).width();
     if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
         screenWidth = screen.width * ratio;
@@ -63,12 +63,19 @@ $(function() {
     section2Height = document.getElementById("section2").clientHeight;
     section3Height = document.getElementById("section3").clientHeight;
     section4Height = document.getElementById("section4").clientHeight;
+    section5Height = document.getElementById("section5").clientHeight;
+    console.log(section1Height);
+    console.log(section2Height);
+    console.log(section3Height);
+    console.log(section4Height);
+    console.log(section5Height);
 
     // (FRAMEWORK) The animations for each profile section (start y's start at 3/2 and increment by 1 for each section, e.g. 3/2, 5/2, 7/2 ...)
     var tween1 = TweenMax.staggerFromTo(".staggerAnimate1", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
     var tween2 = TweenMax.staggerFromTo(".staggerAnimate2", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
     var tween3 = TweenMax.staggerFromTo(".staggerAnimate3", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
     var tween4 = TweenMax.staggerFromTo(".staggerAnimate4", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
+    var tween5 = TweenMax.fromTo(".fadeInAnimate5", 2, {autoAlpha: 0}, {autoAlpha: 1});
 
     // (FRAMEWORK)
     spaceOutSections(TOTAL_DURATION); // Set up spaces in between sections to account for scrolling
@@ -87,7 +94,7 @@ $(function() {
         .addIndicators({name: "pin1"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration; // Pin duration for scene 1
-    sceneOffset += screenHeight + 300; // Offset from scene 1 to scene 2
+    sceneOffset += screenHeight; // Offset from scene 1 to scene 2
 
     var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger2", offset: sceneOffset + section2Height/2, duration: staggerDuration})
         .setPin("#section2")
@@ -100,7 +107,7 @@ $(function() {
         .addIndicators({name: "pin2"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
-    sceneOffset += screenHeight + 300; // Offset from scene 2 to scene 3
+    sceneOffset += screenHeight; // Offset from scene 2 to scene 3
 
     var scene3 = new ScrollMagic.Scene({triggerElement: "#trigger3", offset: sceneOffset + section3Height/2, duration: staggerDuration})
         .setPin("#section3")
@@ -113,7 +120,7 @@ $(function() {
         .addIndicators({name: "pin3"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
-    sceneOffset += screenHeight + 300; // Offset from scene 3 to scene 4
+    sceneOffset += screenHeight; // Offset from scene 3 to scene 4
 
     var scene4 = new ScrollMagic.Scene({triggerElement: "#trigger4", offset: sceneOffset + section4Height/2, duration: staggerDuration})
         .setPin("#section4")
@@ -126,7 +133,20 @@ $(function() {
         .addIndicators({name: "pin4"}) // add indicators (requires plugin)
         .addTo(controller);
     sceneOffset += pinDuration;
-    sceneOffset += screenHeight + 300; // Offset from scene 4 to end scene
+    sceneOffset += screenHeight; // Offset from scene 4 to scene 5
+
+    var scene5 = new ScrollMagic.Scene({triggerElement: "#trigger5", offset: sceneOffset + section5Height/2, duration: staggerDuration})
+        .setPin("#section5")
+        .setTween(tween5)
+        .addIndicators({name: "staggering5"}) // add indicators (requires plugin)
+        .addTo(controller);
+    sceneOffset += staggerDuration;
+    var scene5a = new ScrollMagic.Scene({triggerElement: "#trigger5", offset: sceneOffset + section5Height/2, duration: pinDuration})
+        .setPin("#section5")
+        .addIndicators({name: "pin5"}) // add indicators (requires plugin)
+        .addTo(controller);
+    sceneOffset += pinDuration;
+    sceneOffset += screenHeight; // Offset from scene 5 to end scene
 
     // ------------------------------ Plane bezier animation (broken on mobile) ------------------------------ //
 

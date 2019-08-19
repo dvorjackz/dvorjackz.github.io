@@ -9,8 +9,20 @@ function spaceOutSections(n) {
     }
 }
 
+$(window).resize(function fuck () { 
+    var screenHeight = $(window).height();
+    var screenWidth = $(window).width();
+});
+
 $(function() {
 
+    $(window).bind('resize', function () { 
+        var screenHeight = $(window).height();
+        var screenWidth = $(window).width();
+        console.log("fuck");
+    });
+
+    // Rocket doesn't shake on mobile, only on web
     var canHover = !(matchMedia('(hover: none)').matches);
     if (canHover) {
         $('.scroll-top').addClass('can-hover');

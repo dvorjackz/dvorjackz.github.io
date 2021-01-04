@@ -20,8 +20,8 @@
 
 <body>
   <div class="full">
-    <div class="front">
-      <div class="portrait">
+    <div class="front" id="landingScreen">
+      <div class="large-icon" id="portrait">
         <img src="img/portrait.jpeg" class="profile-pic">
       </div>
       <!-- <div class="hr">&nbsp;</div> -->
@@ -49,30 +49,29 @@
       <p class="sub" style="margin: 24px; font-size: 15px"><a href="mailto:dvorjackz@gmail.com">Interested in connecting?</a></p>
     </div>
   </div>
-  <!-- <div id="trigger0"></div>
-  <div id="target" style="position: relative; margin: auto; top: 0px; left: 0px; bottom: auto; right: auto; box-sizing: border-box; width: 100%;">
-    <img id="plane" src="img/example_bezier.png">
-  </div> -->
 
   <!-- All triggers will get offset successively in the js, in the code where "sceneOffset += screenHeight*3" -->
   <div id="trigger"></div>
 
   <section>
-    <div id="section1">
-      <h1 class="staggerAnimate1">I am an aspiring software engineer. Here is a summary of my work experiences:</h1>
-      <div class="staggerAnimate1">
-        <p class="item-name"><a target="_blank" href="https://www.aboutamazon.com/">Amazon Alexa AI</a></p>
+    <div class="section">
+      <!-- <div class="plane">
+        <img id="plane0" src="/img/plane.png">
+      </div> -->
+      <h1 class="staggerAnimate">I am an aspiring software engineer. Here is a summary of my work experiences:</h1>
+      <div class="staggerAnimate">
+        <p class="item-name"><a target="_blank" href="https://www.aboutamazon.com/">Amazon - Alexa AI</a></p>
         <p class="item-desc">Software Development Intern · June 15-Aug 21, 2020</p>
       </div>
-      <div class="staggerAnimate1">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://www.aresmgmt.com/">Ares Management Corp</a></p>
         <p class="item-desc">Software Engineering Intern · Jun 17-Aug 23, 2019</p>
       </div>
-      <div class="staggerAnimate1">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://www.stealthsoftwareinc.com/">Stealth Software Technologies</a></p>
-        <p class="item-desc">Software Engineering Intern · Nov 12-Feb 11, 2018-2019</p>
+        <p class="item-desc">Software Engineering Intern · Nov 12-Feb 11, '18-'19</p>
       </div>
-      <div class="staggerAnimate1">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://www.grubmarket.com/">GrubMarket</a></p>
         <p class="item-desc">Software Engineering Intern · Jun 18-Sep 3, 2018</p>
       </div>
@@ -82,21 +81,24 @@
   <section class="spacer"></section>
 
   <section>
-    <div id="section2">
-      <h1 class="staggerAnimate2">I am also actively involved on campus! These are the clubs and organizations that I devote the most time to:</h1>
-      <div class="staggerAnimate2">
-        <p class="item-name"><a target="_blank" href="https://ucladevx.com/">DevX (Tech moonshots)</a></p>
-        <p class="item-desc">Project Manager @ <a target="_blank" href="https://github.com/ucladevx/BruinBot-Backend">BruinBot</a>, an autonomous last-mile delivery-as-a-service for the UCLA campus</p>
+    <div class="section">
+      <!-- <div class="plane">
+        <img id="plane1" src="/img/plane.png">
+      </div> -->
+      <h1 class="staggerAnimate">I am also actively involved on campus! These are the clubs and organizations that I devote the most time to:</h1>
+      <div class="staggerAnimate">
+        <p class="item-name"><a target="_blank" href="https://ucladevx.com/">DevX</a></p>
+        <p class="item-desc">Project Manager @ <a target="_blank" href="https://github.com/ucladevx/BruinBot-Backend">BruinBot</a>, an autonomous robot delivery service for the UCLA campus</p>
       </div>
-      <div class="staggerAnimate2">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://schoolofmusic.ucla.edu/ensembles/philharmonia/">UCLA Philharmonia</a></p>
         <p class="item-desc">Violinist</p>
       </div>
-      <div class="staggerAnimate2">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://www.ucladsp.com/">Delta Sigma Pi Professional Fraternity</a></p>
         <p class="item-desc">Webmaster & brother</p>
       </div>
-      <div class="staggerAnimate2">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="http://mentorship.seas.ucla.edu/#/">MentorSEAS</a></p>
         <p class="item-desc">Engineering mentor</a></p>
       </div>
@@ -106,27 +108,31 @@
   <section class="spacer"></section>
 
   <section>
-    <div id="section3">
-      <h1 class="staggerAnimate3">Here are a few of my favorite side projects that I have worked on:</h1>
-      <div class="staggerAnimate3">
+    <div class="section">
+      <h1 class="staggerAnimate">Here are a few of my favorite side projects that I have worked on:</h1>
+      <div class="staggerAnimate">
+        <p class="item-name"><a target="_blank" href="https://github.com/ucladevx/BruinBot-Backend">BruinBot</a></p>
+        <p class="item-desc">Mobile app for ordering and planning autonomous robot deliveries</p>
+      </div>
+      <div class="staggerAnimate">
+        <p class="item-name"><a target="_blank" href="https://github.com/dvorjackz/MarioRL">marioRL</a></p>
+        <p class="item-desc">Double deep Q-Learning and other reinforcement learning tricks help Mario not die</p>
+      </div>
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://github.com/dvorjackz/RNN-moneymaker">moneymaker</a></p>
-        <p class="item-desc">CNN's, RNN's, and money making - name a better combo!</p>
+        <p class="item-desc">CNN's, RNN's, and stocks. Name a better combo</p>
       </div>
-      <div class="staggerAnimate3">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://github.com/dvorjackz/poolfolio">poolfolio</a></p>
-        <p class="item-desc">Team-based stock market simulation competition which pits crowd-managed portfolios against each other.</p>
+        <p class="item-desc">Crowd-managed stock market simulation competition</p>
       </div>
-      <div class="staggerAnimate3">
+      <div class="staggerAnimate">
         <p class="item-name"><a target="_blank" href="https://github.com/dvorjackz/Sift">sift</a></p>
-        <p class="item-desc">Tinder but for evaluators to compare applicants. Ranks applicant resumes using elo based on head-to-head resume comparisons.</p>
+        <p class="item-desc">Tinder but for evaluators to compare resumes and rank applicants with elo</p>
       </div>
-      <div class="staggerAnimate3">
-        <p class="item-name"><a target="_blank" href="https://github.com/ucladevx/Mappening">bmaps.io</a></p>
-        <p class="item-desc">Helps UCLA students discover interesting events near them on a 3D map, live at <a target="_blank" href="http://bmaps.io/">Bmaps.io</a></p>
-      </div>
-      <div class="staggerAnimate3">
-        <p class="item-name"><a target="_blank" href="https://github.com/dvorjackz/ClassTracker">UCLA Course Scraper</a></p>
-        <p class="item-desc">Scrapes together info from all 1500+ UCLA quraterly courses</p>
+      <div class="staggerAnimate">
+        <p class="item-name"><a target="_blank" href="https://github.com/ucladevx/Mappening">bmaps</a></p>
+        <p class="item-desc">Helps UCLA students discover interesting events near them on map, live at <a target="_blank" href="http://bmaps.io/">Bmaps.io</a></p>
       </div>
     </div>
   </section>
@@ -134,31 +140,31 @@
   <section class="spacer"></section>
 
   <section>
-    <div id="section4">
-      <h1 class="staggerAnimate4">And here's a little about myself and a few things I really care about:</h1>
-      <div class="staggerAnimate4">
-        <p class="item-name">Basketball</p>
-        <p class="item-desc">Lakers, Heat, and Nuggets fan (</p>
+    <div class="section">
+      <h1 class="staggerAnimate">And here's a little about myself and a few things I really care about:</h1>
+      <div class="staggerAnimate">
+        <p class="item-name">Basketball <img class="item-icon bouncable" src="img/basketball.png"></p>
+        <p class="item-desc">Lakers & Heat fan (coincidence they met in the finals in 2020, I swear)</p>
       </div>
-      <div class="staggerAnimate4">
+      <div class="staggerAnimate">
         <p class="item-name">Trading</p>
-        <p class="item-desc">Fun until I lose a lot of money.</p>
+        <p class="item-desc">Fun until I lose a lot of money</p>
       </div>
-      <div class="staggerAnimate4">
+      <div class="staggerAnimate">
         <p class="item-name">Music</p>
-        <p class="item-desc">Violin player since 7 years old. <a target="_blank" href="https://www.youtube.com/watch?v=GJVtH5UgwTs">Used to be OK.</a> Also love R&B, 80's, EDM, KPop, and Mando.</p>
+        <p class="item-desc">Violin player since 7 years old. <a target="_blank" href="https://www.youtube.com/watch?v=GJVtH5UgwTs">Used to have skills.</a> Likes R&B, 80's, EDM, KPop, and Mando</p>
       </div>
-      <div class="staggerAnimate4">
+      <div class="staggerAnimate">
         <p class="item-name">Food</p>
-        <p class="item-desc">Not a competitive eater but very competitive at eating, not afraid to spend $$$ on good food. Likes to cook.</p>
+        <p class="item-desc">Not a competitive eater but very competitive at eating</p>
       </div>
-      <div class="staggerAnimate4">
+      <div class="staggerAnimate">
         <p class="item-name">Foosball</p>
-        <p class="item-desc">On a quest to perfect the pull shot.</p>
+        <p class="item-desc">On a quest to perfect the pull shot</p>
       </div>
-      <div class="staggerAnimate4">
+      <div class="staggerAnimate">
         <p class="item-name">Traveling</p>
-        <p class="item-desc">Life goal to visit each continent by 30.</p>
+        <p class="item-desc">Life goal to visit each continent by 30</p>
       </div>
     </div>
   </section>
@@ -166,8 +172,8 @@
   <section class="spacer"></section>
 
   <section>
-    <div id="section5">
-      <div class="staggerAnimate5">
+    <div class="section">
+      <div class="staggerAnimate">
           <p class="sub fadeInAnimate5" style="margin: 24px; font-size: 15px"><a href="mailto:dvorjackz@gmail.com">Interested in connecting?</a></p>
       </div>
     </div>

@@ -1,28 +1,53 @@
 const STAGGER_DURATION = 7;
 const PIN_DURATION = 3;
 const TOTAL_DURATION = STAGGER_DURATION + PIN_DURATION;
-var screenHeight;
-var screenWidth;
+let screenHeight;
+let screenWidth;
+
+function isMobile() {
+    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}
 
 function spaceOutSections(n) {
-    var spacers = document.getElementsByClassName("spacer");
+    let spacers = document.getElementsByClassName("spacer");
     for (spacer of spacers) {
         spacer.style.height = spacer.clientHeight*n + 'px';
     }
 }
 
+$("#portrait").on("mouseenter click", function() {
+    let duration = 1.5;
+    TweenMax.to(this, duration / 4, {y:-20, ease:Power1.easeOut});
+    TweenMax.to(this, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
+});
+
+$(".item-icon").on("mouseenter click", function() {
+    let duration = 1;
+    TweenMax.to(this, duration / 4, {y:-20, ease:Power1.easeOut});
+    TweenMax.to(this, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
+});
+
 $(function() {
 
+    // ------------------------------------------------ General setup --------------=-------------------------------- //
     // Rocket doesn't shake on mobile, only on web
-    var canHover = !(matchMedia('(hover: none)').matches);
+    let canHover = !(matchMedia('(hover: none)').matches);
     if (canHover) {
         $('.scroll-top').addClass('can-hover');
     }
 
-    var ratio = window.devicePixelRatio || 1;
     screenHeight = $(window).height();
-    if(  /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    screenWidth = $(window).width();
+    if (isMobile()) {
+        let ratio = window.devicePixelRatio || 1;
         screenHeight = window.innerHeight || $(window).height();
+        screenWidth = screen.width * ratio;
+
         // vh does not work in mobile, so height is set dynamicaly
         $('.spacer').height(screenHeight);
         $('section').height(screenHeight);
@@ -31,14 +56,8 @@ $(function() {
     else {
         $('.scroll-top').addClass('can-hover');
     }
-    screenWidth = $(window).width();
-    if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-        screenWidth = screen.width * ratio;
-        var viewportHeight = $('.banner').outerHeight();
-    }
 
-    // Establish scroll to top rocket button
-    // CHECK TO SEE IF THE WINDOW IS TOP IF NOT THEN DISPLAY BUTTON
+    // ---------------------------------------------- Rocket scrolling ---------------------------------------------- //
     jQuery(window).scroll(function(){
         if ($(window).scrollTop() > screenHeight) {
             $(".scroll-top").fadeIn();
@@ -48,153 +67,97 @@ $(function() {
             $(".scroll-top").removeClass("scroll-top_hover");
         }
     });
-    //CLICK EVENT TO SCROLL TO TOP
     $(".scroll-top").click(function() {
         $(window.opera ? 'html' : 'html, body').animate({
             scrollTop: 0
         }, "slow");
     });
 
-    // Set up scroll magic
-    var controller = new ScrollMagic.Controller();
+    // ------------------------------------------ Body content animations ------------------------------------------- //
 
-    // Fade in the frontpage on startup
-    var tween0 = TweenMax.fromTo(".front", 2, {autoAlpha: 0}, {autoAlpha: 1})
+    let controller = new ScrollMagic.Controller();
 
-    // (FRAMEWORK)
-    section1Height = document.getElementById("section1").clientHeight;
-    section2Height = document.getElementById("section2").clientHeight;
-    section3Height = document.getElementById("section3").clientHeight;
-    section4Height = document.getElementById("section4").clientHeight;
-    section5Height = document.getElementById("section5").clientHeight;
+    // Fade in the frontpage on for loading
+    TweenMax.fromTo(".front", 2, {autoAlpha: 0}, {autoAlpha: 1})
 
-    // (FRAMEWORK) The animations for each profile section (start y's start at 3/2 and increment by 1 for each section, e.g. 3/2, 5/2, 7/2 ...)
-    var tween1 = TweenMax.staggerFromTo(".staggerAnimate1", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
-    var tween2 = TweenMax.staggerFromTo(".staggerAnimate2", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
-    var tween3 = TweenMax.staggerFromTo(".staggerAnimate3", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
-    var tween4 = TweenMax.staggerFromTo(".staggerAnimate4", 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5);
-    var tween5 = TweenMax.fromTo(".fadeInAnimate5", 2, {autoAlpha: 0}, {autoAlpha: 1});
+    let sections = document.getElementsByClassName("section");
+    let sectionTweens = [];
 
-    // (FRAMEWORK)
+    sectionTweens.push(TweenMax.staggerFromTo(sections[0].getElementsByClassName("staggerAnimate"), 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5));
+    for (let i = 1; i < sections.length - 1; i++) {
+        sectionTweens.push(TweenMax.staggerFromTo(sections[i].getElementsByClassName("staggerAnimate"), 1, {y: screenHeight*3/2}, {y: 0, ease: Back.easeOut.config(0.75)}, 0.5));
+    }
+    sectionTweens.push(TweenMax.fromTo(sections[sections.length - 1].getElementsByClassName("staggerAnimate"), 1, {autoAlpha: 0}, {autoAlpha: 1}));
+
     spaceOutSections(TOTAL_DURATION); // Set up spaces in between sections to account for scrolling
     staggerDuration = STAGGER_DURATION * screenHeight;
     pinDuration = PIN_DURATION * screenHeight;
     
-    sceneOffset = 0; // Offset for scene 1
-    var scene1 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section1Height/2, duration: staggerDuration})
-        .setPin("#section1")
-        .setTween(tween1)
-        .addIndicators({name: "staggering1"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += staggerDuration; // Stagger duration for scene 1
-    var scene1a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section1Height/2, duration: pinDuration})
-        .setPin("#section1")
-        .addIndicators({name: "pin1"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += pinDuration; // Pin duration for scene 1
-    sceneOffset += screenHeight; // Offset from scene 1 to scene 2
+    let sceneOffset = 0;
+    let sceneOffsets = []
 
-    var scene2 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section2Height/2, duration: staggerDuration})
-        .setPin("#section2")
-        .setTween(tween2)
-        .addIndicators({name: "staggering2"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += staggerDuration; // Stagger duration for scene 2
-    var scene2a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section2Height/2, duration: pinDuration})
-        .setPin("#section2")
-        .addIndicators({name: "pin2"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += pinDuration;
-    sceneOffset += screenHeight; // Offset from scene 2 to scene 3
+    for (let i = 0; i < sections.length; i++) {
+        new ScrollMagic.Scene({
+                triggerElement: "#trigger", 
+                offset: sceneOffset + sections[i].clientHeight/2, 
+                duration: staggerDuration
+            })
+            .setPin(sections[i])
+            .setTween(sectionTweens[i])
+            .addIndicators({name: `animation${i + 1}`})
+            .addTo(controller)
 
-    var scene3 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section3Height/2, duration: staggerDuration})
-        .setPin("#section3")
-        .setTween(tween3)
-        .addIndicators({name: "staggering3"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += staggerDuration;
-    var scene3a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section3Height/2, duration: pinDuration})
-        .setPin("#section3")
-        .addIndicators({name: "pin3"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += pinDuration;
-    sceneOffset += screenHeight; // Offset from scene 3 to scene 4
+        sceneOffsets.push({ "stagger": sceneOffset })
+        sceneOffset += staggerDuration;
+        
+        let actualPinDuration = pinDuration;
+        if (i == sections.length - 1) {
+            actualPinDuration = 0;
+        }
+        new ScrollMagic.Scene({
+                triggerElement: "#trigger", offset: sceneOffset + sections[i].clientHeight/2, duration: actualPinDuration
+            })
+            .setPin(sections[i])
+            .addIndicators({name: `pin${i + 1}`})
+            .addTo(controller)
 
-    var scene4 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section4Height/2, duration: staggerDuration})
-        .setPin("#section4")
-        .setTween(tween4)
-        .addIndicators({name: "staggering4"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += staggerDuration;
-    var scene4a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section4Height/2, duration: pinDuration})
-        .setPin("#section4")
-        .addIndicators({name: "pin4"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += pinDuration;
-    sceneOffset += screenHeight; // Offset from scene 4 to scene 5
+        sceneOffsets[i].pause = sceneOffset;
 
-    var scene5 = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section5Height/2, duration: staggerDuration})
-        .setPin("#section5")
-        .setTween(tween5)
-        .addIndicators({name: "staggering5"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += staggerDuration;
-    var scene5a = new ScrollMagic.Scene({triggerElement: "#trigger", offset: sceneOffset + section5Height/2, duration: pinDuration})
-        .setPin("#section5")
-        .addIndicators({name: "pin5"}) // add indicators (requires plugin)
-        .addTo(controller);
-    sceneOffset += pinDuration;
-    sceneOffset += screenHeight; // Offset from scene 5 to end scene
+        sceneOffset += pinDuration;
+        sceneOffset += screenHeight;
+    }
 
-    // ------------------------------ Plane bezier animation (broken on mobile) ------------------------------ //
+    // -------------------------------------------- Plane bezier animation ------------------------------------------ //
 
-    // // Plane starting position (out of view to the left of the view)
-    // planeWidth = document.getElementById("plane").clientWidth;
-    // document.getElementById("target").style.left = (-planeWidth).toString() + "px";
-    //
-    // var flightpath = {
-    //     entry : {
-    //         curviness: 1.25,
-    //         autoRotate: true,
-    //         values: [
-    //                 {x: 100,	y: -20},
-    //                 {x: 300,	y: 10}
-    //             ]
-    //     },
-    //     looping : {
-    //         curviness: 1.25,
-    //         autoRotate: true,
-    //         values: [
-    //                 {x: 510,	y: 60},
-    //                 {x: 620,	y: -60},
-    //                 {x: 500,	y: -100},
-    //                 {x: 380,	y: 20},
-    //                 {x: 500,	y: 60},
-    //                 {x: 580,	y: 20},
-    //                 {x: 620,	y: 15}
-    //             ]
-    //     },
-    //     leave : {
-    //         curviness: 1.25,
-    //         autoRotate: true,
-    //         values: [
-    //                 {x: 660,	y: 20},
-    //                 {x: 800,	y: 130},
-    //                 {x: $(window).width() + 300,	y: -100},
-    //             ]
-    //     }
-    // };
-    //
-    // // create tween
-    // var tween = new TimelineMax()
-    //     .add(TweenMax.to($("#plane"), 1.2, {css:{bezier:flightpath.entry}, ease:Power1.easeInOut}))
-    //     .add(TweenMax.to($("#plane"), 2, {css:{bezier:flightpath.looping}, ease:Power1.easeInOut}))
-    //     .add(TweenMax.to($("#plane"), 1, {css:{bezier:flightpath.leave}, ease:Power1.easeInOut}));
-    //
-    // // build scene
-    // var scene0 = new ScrollMagic.Scene({triggerElement: "#trigger0", triggerHook: "onEnter", duration: 1000, offset: 100})
-    //     .setTween(tween)
-    //     .addIndicators({name: "airplane"}) // add indicators (requires plugin)
+    // planeWidth = document.getElementById("plane0").clientWidth;
+
+    // let airplane0 = new TimelineMax()
+    //     .add(TweenMax.set($("#plane0"), {x: -planeWidth, y: sections[0].clientHeight/2}))
+    //     .add(TweenMax.to($("#plane0"), 2, {
+    //         css:{
+    //             bezier: {
+    //                 curviness: 1.25,
+    //                 autoRotate: true,
+    //                 values: [
+    //                         {x: screenWidth + planeWidth,	y: sections[0].clientHeight/2},
+    //                     ]
+    //             }
+    //         }, 
+    //         ease: Power1.easeInOut
+    //     }));
+    
+    // new ScrollMagic.Scene({triggerElement: "#trigger", duration: 2200, offset: screenHeight + sceneOffsets[0].stagger })
+    //     .setTween(airplane0)
+    //     .addIndicators({name: "airplane1"})
+    //     .addTo(controller);
+
+    // document.getElementById("plane1").style.transform = "scaleX(-1)";
+    // let airplane1 = new TimelineMax()
+    //     .add(TweenMax.fromTo($("#plane1"), 2, {x: screenWidth + planeWidth,	y: sections[1].clientHeight/2}, {x: -planeWidth, y: sections[1].clientHeight/2}));
+    
+    // new ScrollMagic.Scene({triggerElement: "#trigger", duration: 3300, offset: screenHeight + sceneOffsets[1].stagger })
+    //     .setTween(airplane1)
+    //     .addIndicators({name: "airplane2"})
     //     .addTo(controller);
     
   });

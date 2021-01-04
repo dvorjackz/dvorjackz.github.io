@@ -111,7 +111,7 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     justify-content:center;
     /* vh does not work in mobile, so height is set dynamicaly in js */
     height: 100vh;
-    padding: 0px 15px;
+    padding: 0px 40px;
   }
 
   .spacer {
@@ -133,16 +133,38 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
   .front {
     padding: 0px 15px;
+    margin: 0px 10px;
   }
 
-  .portrait {
-    width: 200px;
-    height: 200px;
+  .item-icon {
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+
+  .plane {
+    position: relative; 
+    margin: auto; 
+    top: 0px; 
+    left: -50px; 
+    bottom: auto; 
+    right: auto; 
+    box-sizing: border-box; 
+    width: 100%;
+  }
+
+  .large-icon {
     position: relative;
     overflow: hidden;
     border-radius: 50%;
     margin: 0px auto 30px;
     border: 5px outset gainsboro
+  }
+
+  #portrait {
+    width: 200px;
+    height: 200px;
   }
 
   .profile-pic {
@@ -337,7 +359,7 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     }
 
     .item-desc {
-      font-size: 8px;
+      font-size: 7.5px;
     }
   
     .col {

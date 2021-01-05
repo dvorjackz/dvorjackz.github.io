@@ -100,12 +100,6 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     border-bottom-color: transparent;
     transition: color 0.5s ease;
   }
-  
-  ::selection {
-    background: #fef9d8;
-  }  
-  
-  /* --------------------------- Typography --------------------------- */
 
   section {
     justify-content:center;
@@ -113,10 +107,25 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     height: 100vh;
     padding: 0px 40px;
   }
+  
+  ::selection {
+    background: #fef9d8;
+  }  
+  
+  /* --------------------------- Typography --------------------------- */
 
-  .spacer {
-    /* vh does not work in mobile, so height is set dynamicaly in js */
-    height: 100vh;
+  .can-hover.scroll-top:hover {
+    animation-delay: 0s;
+    animation-duration: .1s;
+    animation-iteration-count: infinite;
+    animation-name: shake-little;
+    animation-play-state:running;
+    animation-timing-function:ease-in-out;
+  }
+  
+  .front {
+    position: relative;
+    margin: 0px 25px;
   }
 
   .full {
@@ -129,11 +138,6 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     align-items:center;
     position: relative;
     text-align: center;
-  }
-
-  .front {
-    padding: 0px 15px;
-    margin: 0px 10px;
   }
 
   .item-icon {
@@ -159,28 +163,29 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     overflow: hidden;
     border-radius: 50%;
     margin: 0px auto 30px;
-    border: 5px outset gainsboro
-  }
-
-  #portrait {
     width: 200px;
     height: 200px;
   }
 
-  .profile-pic {
-    display: inline;
-    position: relative;
-    margin: auto;
-    height: 100%;
-    width: auto;
+  .icon-border {
+    border: 5px outset gainsboro
   }
 
-  .scroll-top img {
-    height: 35px;
-    margin: -10px 0 0 6px;
-    border: 0;
+  .icon-content {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translate(-50%);
   }
-  
+
+  .icon-fill {
+    height: 100%;
+  }
+
+  /* .profile-pic-border {
+
+  } */
+
   .scroll-top {
     height: 60px; 
     width: 60px; 
@@ -190,14 +195,11 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
     display: none; 
     z-index: 9999;
   }
-  
-  .can-hover.scroll-top:hover {
-    animation-delay: 0s;
-    animation-duration: .1s;
-    animation-iteration-count: infinite;
-    animation-name: shake-little;
-    animation-play-state:running;
-    animation-timing-function:ease-in-out;
+
+  .scroll-top img {
+    height: 35px;
+    margin: -10px 0 0 6px;
+    border: 0;
   }
   
   @keyframes shake-little {

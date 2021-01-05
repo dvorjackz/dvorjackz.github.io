@@ -20,23 +20,31 @@ function spaceOutSections(n) {
     }
 }
 
-$("#portrait").on("mouseenter click", function() {
-    let portraitBorder = document.getElementById("portrait-border");
-
+$(".bouncable-border-rotatable").on("mouseenter click", function() {
+    let iconContent = this.getElementsByClassName("icon-content")[0];
+    let iconBorder = this.getElementsByClassName("icon-border")[0];
+    
     let duration = 1.5;
-    TweenMax.to(this, duration / 4, {y:-20, ease:Power1.easeOut});
-    TweenMax.to(this, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
-    TweenMax.to(portraitBorder, duration / 4, {y:-20, ease:Power1.easeOut});
-    TweenMax.to(portraitBorder, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
-    TweenMax.fromTo(portraitBorder, duration, {rotation: 0, ease:Expo.easeIn}, {rotation:360, ease:Back.easeOut});
+    TweenMax.to(iconContent, duration / 4, {y:-20, ease:Power1.easeOut});
+    TweenMax.to(iconContent, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
+    TweenMax.to(iconBorder, duration / 4, {y:-20, ease:Power1.easeOut});
+    TweenMax.to(iconBorder, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
+    TweenMax.fromTo(iconBorder, duration, {rotation: 0, ease:Expo.easeIn}, {rotation:360, ease:Back.easeOut});
 });
 
 $(".item-icon").on("mouseenter click", function() {
     let duration = 1;
+    TweenMax.to(this, duration / 4, {y:-40, ease:Power1.easeOut});
+    TweenMax.to(this, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
+    TweenMax.fromTo(this, 3/4 * duration, {rotation: 0}, {rotation:360, ease:Power3.easeOut});
+})
+
+$(".item-icon-small").on("mouseenter click", function() {
+    let duration = 1;
     TweenMax.to(this, duration / 4, {y:-20, ease:Power1.easeOut});
     TweenMax.to(this, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
     TweenMax.fromTo(this, 3/4 * duration, {rotation: 0}, {rotation:360, ease:Power3.easeOut});
-});
+})
 
 $(function() {
 
@@ -61,6 +69,18 @@ $(function() {
     }
     else {
         $('.scroll-top').addClass('can-hover');
+    }
+
+    if (!isMobile()) {
+        let onlyMobile = document.getElementsByClassName("only-mobile");
+        for (let i = 0; i < onlyMobile.length; i++) {
+            onlyMobile[i].remove();
+        }
+    } else {
+        let onlyWeb = document.getElementsByClassName("only-web");
+        for (let i = 0; i < onlyWeb.length; i++) {
+            onlyWeb[i].remove();
+        }
     }
 
     // ---------------------------------------------- Rocket scrolling ---------------------------------------------- //

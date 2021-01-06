@@ -150,10 +150,12 @@ html, spacer, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockq
 
   .bouncable-border-rotatable {
     margin-top: 40px;
+    border-radius: 50%;
   }
 
   .bouncable-rotatable {
     margin-top: 40px;
+    border-radius: 50%;
   }
 
   .can-hover.scroll-top:hover {

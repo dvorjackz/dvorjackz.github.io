@@ -20,15 +20,16 @@ function spaceOutSections(n) {
     }
 }
 
-$(".bouncable-border-rotatable").on("mouseenter click", function() {
-    let iconContent = this.getElementsByClassName("icon-content")[0];
-    let iconBorder = this.getElementsByClassName("icon-border")[0];
+// For bouncable circle images with spinning borders
+$(".icon-content").on("mouseenter click", function() {
+    let parent = this.closest(".bouncable-border-rotatable");
+    let iconBorder = parent.getElementsByClassName("icon-border")[0];
     
     let duration = 1.5;
-    TweenMax.to(iconContent, duration / 4, {y:-20, ease:Power1.easeOut});
-    TweenMax.to(iconContent, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
-    TweenMax.to(iconBorder, duration / 4, {y:-20, ease:Power1.easeOut});
-    TweenMax.to(iconBorder, duration / 2, {y:0, ease:Bounce.easeOut, delay:duration / 4});
+    TweenMax.to(this, duration / 4, {y: -20, ease:Power1.easeOut});
+    TweenMax.to(this, duration / 2, {y: 0, ease:Bounce.easeOut, delay:duration / 4});
+    TweenMax.to(iconBorder, duration / 4, {y: -20, ease:Power1.easeOut});
+    TweenMax.to(iconBorder, duration / 2, {y: 0, ease:Bounce.easeOut, delay:duration / 4});
     TweenMax.fromTo(iconBorder, duration, {rotation: 0, ease:Expo.easeIn}, {rotation:360, ease:Back.easeOut});
 });
 
